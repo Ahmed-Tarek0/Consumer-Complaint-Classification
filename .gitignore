@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+deployment/backend/saved_model/
+.ipynb_checkpoints/
