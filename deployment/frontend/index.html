@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complaint Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="sheet">
+    <header class="sheet__header">
+      <p class="eyebrow">Complaint intake</p>
+      <h1>What's this complaint about?</h1>
+      <p class="lede">
+        Paste a customer complaint narrative below. The model reads it and
+        files it under the category it fits best.
+      </p>
+    </header>
+
+    <form id="complaint-form" class="intake">
+      <label for="complaint-text" class="intake__label">Complaint narrative</label>
+      <textarea
+        id="complaint-text"
+        name="complaint-text"
+        rows="6"
+        placeholder="e.g. I was charged twice for the same transaction and the bank won't refund the duplicate charge."
+        required
+      ></textarea>
+
+      <div class="intake__row">
+        <button type="button" id="sample-btn" class="btn btn--ghost">
+          Use an example
+        </button>
+        <button type="submit" id="submit-btn" class="btn btn--primary">
+          <span class="btn__label">Classify</span>
+          <span class="btn__spinner" hidden></span>
+        </button>
+      </div>
+    </form>
+
+    <section id="result" class="result" hidden>
+      <div class="result__heading">
+        <span class="result__tag" id="result-category"></span>
+        <span class="result__confidence" id="result-confidence"></span>
+      </div>
+
+      <ul class="ledger" id="result-ledger"></ul>
+    </section>
+
+    <section id="error" class="error" hidden>
+      <p id="error-text"></p>
+    </section>
+
+    <footer class="sheet__footer">
+      <span id="status-dot" class="status-dot"></span>
+      <span id="status-text">Checking API connection…</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
